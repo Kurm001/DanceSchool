@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -22,6 +23,7 @@ public class SignUp extends AppCompatActivity {
     private EditText _passwordText;
     private Button _signupButton;
     private TextView _loginLink;
+    private CheckBox _checkAccess;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -33,6 +35,7 @@ public class SignUp extends AppCompatActivity {
         _nameText = (EditText) findViewById(R.id.input_name);
         _emailText = (EditText) findViewById(R.id.input_email);
         _passwordText = (EditText) findViewById(R.id.input_password);
+        _checkAccess = (CheckBox) findViewById(R.id.checkAccessLevel);
 
 
         _signupButton.setOnClickListener(new View.OnClickListener() {
@@ -70,6 +73,13 @@ public class SignUp extends AppCompatActivity {
         String name = _nameText.getText().toString();
         String email = _emailText.getText().toString();
         String password = _passwordText.getText().toString();
+        String access;
+
+        if (!_checkAccess.isChecked()) {
+            access = "User";
+        } else {
+            access = "Teacher";
+        }
 
         // TODO: Implement your own signup logic here.
 
@@ -78,7 +88,7 @@ public class SignUp extends AppCompatActivity {
                 name + "'," +
                 "'" + email + "'," +
                 "'" + password + "'," +
-                "'User');";
+                "'" + access + "');";
 
         if (Login.handler.execAction(qu)) {
 
@@ -100,7 +110,6 @@ public class SignUp extends AppCompatActivity {
         }
 
     }
-
 
     public void onSignupSuccess() {
         _signupButton.setEnabled(true);
