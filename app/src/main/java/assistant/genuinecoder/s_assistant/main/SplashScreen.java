@@ -15,7 +15,7 @@ import assistant.genuinecoder.s_assistant.main.Login.Login;
 public class SplashScreen extends AppCompatActivity {
 
     private ImageView logo;
-    private static int splashTimeOut=5000;
+    private static int splashTimeOut=1000;
 
      @Override
      protected void onCreate(Bundle savedInstanceState) {

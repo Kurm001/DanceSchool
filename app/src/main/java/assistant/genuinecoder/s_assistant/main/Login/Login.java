@@ -22,7 +22,7 @@ public class Login extends AppCompatActivity {
     private static final String TAG = "Login";
     private static final int REQUEST_SIGNUP = 0;
     public static DatabaseHandler handler;
-    private EditText _emailText, _passwordText;
+    private EditText _usernameText, _passwordText;
     private TextView _signupLink;
     private Button _loginButton;
 
@@ -33,7 +33,7 @@ public class Login extends AppCompatActivity {
 
         handler = new DatabaseHandler(this);
 
-        _emailText = (EditText) findViewById(R.id.input_email);
+        _usernameText = (EditText) findViewById(R.id.input_username);
         _passwordText = (EditText) findViewById(R.id.input_password);
         _loginButton = (Button) findViewById(R.id.btn_login);
         _signupLink = (TextView) findViewById(R.id.link_signup);
@@ -67,7 +67,7 @@ public class Login extends AppCompatActivity {
 
         _loginButton.setEnabled(false);
 
-        String email = _emailText.getText().toString();
+        String email = _usernameText.getText().toString();
         String password = _passwordText.getText().toString();
 
         // TODO: Implement your own authentication logic here.
@@ -145,14 +145,14 @@ public class Login extends AppCompatActivity {
     public boolean validate() {
         boolean valid = true;
 
-        String email = _emailText.getText().toString();
+        String email = _usernameText.getText().toString();
         String password = _passwordText.getText().toString();
 
-        if (email.isEmpty() || !android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
-            _emailText.setError("enter a valid email address");
+        if (email.isEmpty()){ //|| !android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches() THIS IS EMAIL VALIDATION CODE
+            _usernameText.setError("Enter Username");
             valid = false;
         } else {
-            _emailText.setError(null);
+            _usernameText.setError(null);
         }
 
         if (password.isEmpty() || password.length() < 4 || password.length() > 10) {

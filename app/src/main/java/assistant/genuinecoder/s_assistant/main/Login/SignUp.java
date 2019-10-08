@@ -19,7 +19,7 @@ public class SignUp extends AppCompatActivity {
     private static final String TAG = "SignUp";
 
     private EditText _nameText;
-    private EditText _emailText;
+    private EditText _usernameText;
     private EditText _passwordText;
     private Button _signupButton;
     private TextView _loginLink;
@@ -33,7 +33,7 @@ public class SignUp extends AppCompatActivity {
         _loginLink = (TextView) findViewById(R.id.link_login);
         _signupButton = (Button) findViewById(R.id.btn_signup);
         _nameText = (EditText) findViewById(R.id.input_name);
-        _emailText = (EditText) findViewById(R.id.input_email);
+        _usernameText = (EditText) findViewById(R.id.input_username);
         _passwordText = (EditText) findViewById(R.id.input_password);
         _checkAccess = (CheckBox) findViewById(R.id.checkAccessLevel);
 
@@ -71,7 +71,7 @@ public class SignUp extends AppCompatActivity {
         progressDialog.show();
 
         String name = _nameText.getText().toString();
-        String email = _emailText.getText().toString();
+        String email = _usernameText.getText().toString();
         String password = _passwordText.getText().toString();
         String access;
 
@@ -127,7 +127,7 @@ public class SignUp extends AppCompatActivity {
         boolean valid = true;
 
         String name = _nameText.getText().toString();
-        String email = _emailText.getText().toString();
+        String email = _usernameText.getText().toString();
         String password = _passwordText.getText().toString();
 
         if (name.isEmpty() || name.length() < 3) {
@@ -137,11 +137,11 @@ public class SignUp extends AppCompatActivity {
             _nameText.setError(null);
         }
 
-        if (email.isEmpty() || !android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
-            _emailText.setError("enter a valid email address");
+        if (email.isEmpty()){ //|| !android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches() THIS IS CODE FOR EMAIL VALIDATION
+            _usernameText.setError("Enter Username");
             valid = false;
         } else {
-            _emailText.setError(null);
+            _usernameText.setError(null);
         }
 
         if (password.isEmpty() || password.length() < 4 || password.length() > 10) {
