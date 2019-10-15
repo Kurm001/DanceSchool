@@ -46,6 +46,7 @@ public class NoteActivity extends AppCompatActivity implements ListView.OnItemCl
             public void onClick(View view) {
                 Intent launchIntent = new Intent(activity, NoteCreate.class);
                 startActivity(launchIntent);
+                finish();
             }
         });
 
@@ -96,13 +97,14 @@ public class NoteActivity extends AppCompatActivity implements ListView.OnItemCl
         AlertDialog.Builder alert = new AlertDialog.Builder(activity);
         final String title = titles.get(position).toString();
         final String body = contents.get(position).toString();
-        alert.setTitle("Delete ?");
-        alert.setMessage("Do you want to delete this note ?");
+        alert.setTitle("Delete?");
+        alert.setMessage("Do you want to delete this note?");
         alert.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 String qu = "DELETE FROM NOTES WHERE TITLE = '" + title + "' AND body = '" + body + "'";
                 if (Login.handler.execAction(qu)) {
+                    listView.setAdapter(null);
                     loadNotes();
                     Toast.makeText(getBaseContext(), "Deleted", Toast.LENGTH_LONG).show();
                 } else {
@@ -119,6 +121,7 @@ public class NoteActivity extends AppCompatActivity implements ListView.OnItemCl
 
 
     public void refreshNote(MenuItem item) {
+        listView.setAdapter(null);
         loadNotes();
     }
 }

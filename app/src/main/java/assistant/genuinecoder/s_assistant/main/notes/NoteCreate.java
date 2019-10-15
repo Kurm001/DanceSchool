@@ -1,5 +1,7 @@
 package assistant.genuinecoder.s_assistant.main.notes;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -45,6 +47,8 @@ public class NoteCreate extends AppCompatActivity {
                 "'" + spinner.getSelectedItem().toString() + "','" + sub.getText().toString().toUpperCase() + "')";
         if (Login.handler.execAction(qu)) {
             Toast.makeText(getBaseContext(), "Note Saved", Toast.LENGTH_LONG).show();
+            Intent launchIntent = new Intent(NoteCreate.this, NoteActivity.class);
+            startActivity(launchIntent);
             this.finish();
         }
     }
