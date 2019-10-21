@@ -149,7 +149,7 @@ public class Login extends AppCompatActivity {
         String password = _passwordText.getText().toString();
 
         if (email.isEmpty() || !android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
-            _emailText.setError("Enter Email");
+            _emailText.setError("enter a valid email address");
             valid = false;
         } else {
             _emailText.setError(null);

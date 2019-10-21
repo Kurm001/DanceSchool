@@ -39,6 +39,7 @@ import assistant.genuinecoder.s_assistant.main.AppBase;
 import assistant.genuinecoder.s_assistant.main.Login.Login;
 import assistant.genuinecoder.s_assistant.main.attendance.AttendanceActivity;
 import assistant.genuinecoder.s_assistant.main.communicate.communicateActivity;
+import assistant.genuinecoder.s_assistant.main.music.musicActivity;
 import assistant.genuinecoder.s_assistant.main.notes.NoteActivity;
 import assistant.genuinecoder.s_assistant.main.profile.ProfileActivity;
 import assistant.genuinecoder.s_assistant.main.schedule.Scheduler;
@@ -198,11 +199,30 @@ public class GridAdapter extends BaseAdapter {
             anim.setRepeatMode(Animation.INFINITE);
             anim.setRepeatCount(Animation.INFINITE);
             imageView.startAnimation(anim);
-        }
 
-        textView.setText(names.get(position).toString());
-        return v;
-    }
+        } else if (names.get(position).toString().equals("MUSIC")) {
+            imageView.setImageResource(R.drawable.ic_audiotrack_24px);
+            v.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent launchinIntent = new Intent(activity, musicActivity.class);
+                    activity.startActivity(launchinIntent);
+                }
+            });
+            Animation anim = new ScaleAnimation(
+                    0.95f, 1f, // Start and end values for the X axis scaling
+                    0.95f, 1f, // Start and end values for the Y axis scaling
+                    Animation.RELATIVE_TO_SELF, 0.5f, // Pivot point of X scaling
+                    Animation.RELATIVE_TO_SELF, 0.5f); // Pivot point of Y scaling
+            anim.setFillAfter(true); // Needed to keep the result of the animation
+            anim.setDuration(2000);
+            anim.setRepeatMode(Animation.INFINITE);
+            anim.setRepeatCount(Animation.INFINITE);
+            imageView.startAnimation(anim);
+        }
+            textView.setText(names.get(position).toString());
+            return v;
+        }
 
     public static class createRequest extends DialogFragment {
 

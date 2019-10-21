@@ -52,6 +52,8 @@
             android:name=".main.Login.Login"
             android:theme="@style/AppTheme.login"/>
         <activity
+            android:name=".main.music.musicActivity"/>
+        <activity
             android:name=".main.Login.SignUp"
             android:theme="@style/AppTheme.login"/>
     </application>
