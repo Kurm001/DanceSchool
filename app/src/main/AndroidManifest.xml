@@ -49,6 +49,8 @@
         <activity
             android:name=".main.communicate.EmailOptions"/>
         <activity
+            android:name=".main.event.eventActivity"/>
+        <activity
             android:name=".main.Login.Login"
             android:theme="@style/AppTheme.login"/>
         <activity

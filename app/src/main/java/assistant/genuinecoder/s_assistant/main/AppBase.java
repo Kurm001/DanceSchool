@@ -67,11 +67,13 @@ public class AppBase extends AppCompatActivity {
             basicFields.add("PROFILE");
             basicFields.add("COMMUNICATE");
             basicFields.add("MUSIC");
+            basicFields.add("EVENT");
         }
         if (accessLevel.equals("User")) {
             basicFields.add("COMMUNICATE");
             basicFields.add("NOTES");
             basicFields.add("MUSIC");
+            basicFields.add("EVENT");
 
         }
         adapter = new GridAdapter(this, basicFields);
