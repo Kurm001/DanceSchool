@@ -22,6 +22,7 @@ import assistant.genuinecoder.s_assistant.main.components.GridAdapter;
 import assistant.genuinecoder.s_assistant.main.components.SettingsActivity;
 import assistant.genuinecoder.s_assistant.main.database.DatabaseHandler;
 
+//slight modifications by Willim Pou
 public class AppBase extends AppCompatActivity {
 
     public static ArrayList<String> classes;

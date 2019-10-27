@@ -15,6 +15,7 @@ import java.util.ArrayList;
 import assistant.genuinecoder.s_assistant.R;
 import assistant.genuinecoder.s_assistant.main.Login.Login;
 
+//modified by Brittany Cinque
 public class eventActivity extends AppCompatActivity {
     ListView listView;
     ArrayAdapter adapter;

@@ -8,6 +8,7 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import assistant.genuinecoder.s_assistant.R;
 
+//created by Sean Jordan
 public class musicActivity extends AppCompatActivity {
 
     /** Called when the activity is first created. */

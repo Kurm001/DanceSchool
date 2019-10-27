@@ -22,7 +22,7 @@ import java.util.ArrayList;
 import assistant.genuinecoder.s_assistant.R;
 import assistant.genuinecoder.s_assistant.main.AppBase;
 import assistant.genuinecoder.s_assistant.main.Login.Login;
-
+//modifications made by Willim Pou
 public class NoteActivity extends AppCompatActivity implements ListView.OnItemClickListener, ListView.OnItemLongClickListener {
 
     ListView listView;

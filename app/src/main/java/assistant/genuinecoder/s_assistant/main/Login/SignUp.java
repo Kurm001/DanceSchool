@@ -54,6 +54,7 @@ public class SignUp extends AppCompatActivity {
         });
     }
 
+    //signup modified by Willim Pou s3755860
     public void signup() {
         Log.d(TAG, "Signup");
 
